@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- partial('partials/head', {title:title}) %>
+<body>
+	<%- partial('partials/header') %>
+
+	
+	<%- partial('partials/usernav', { 
+			user: user
+		}) %>
+
+	<nav id="nav" class="row-fluid">
+	<%- partial('partials/feednav', { 
+			
+		}) %>
+	<%- partial('partials/inquiriesnav', { 
+			
+		}) %>
+	</nav>
+
+	<div class="wrapper row-fluid">	
+		<div id="main" class="span12 offset2">
+
+			<div id="inquiries-el"></div>
+
+			<div id="new-inquiries-el" class="row-fluid"></div>
+
+			<div class="row-fluid">
+				<div class="span2 offset7 bttn add">Add Inquiry</div>
+			</div>
+			
+		</div><!-- /#main -->
+		
+
+		<%- partial('partials/footer') %>
+
+		
+	</div><!-- /#wrapper -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%- partial('partials/scripts') %>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- partial('../partials/head', {title:title}) %>
+<body>
+	<%- partial('../partials/header') %>
+
+	<div id="nav-top">
+		<%- partial('../partials/usernav', { 
+				user: user
+			}) %>
+	</div>
+	<nav id="nav" class="row-fluid">
+		<%- partial('../partials/feednav', { }) %>
+		<%- partial('../partials/inquiriesnav', { }) %>
+	</nav>
+
+	<div class="wrapper row-fluid">
+		<div id="left" class="span8">
+			<div class="row-fluid">
+				<div class="main span12">
+					<div id="inquiry-el"></div>
+				</div><!-- /.main -->
+
+				<div class="margin span4">
+				</div>
+			</div>
+		</div>
+
+		<div id="right" class="span8">
+			<div class="row-fluid">
+				<div class="margin span4">
+				</div>
+				<div class="main span12">
+				</div><!-- /.main -->
+
+				
+			</div>
+		</div>
+
+		<div id="overlay"></div>
+		
+
+		<%- partial('../partials/footer') %>
+
+		
+	</div><!-- /#wrapper -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%- partial('../partials/scripts') %>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

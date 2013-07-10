@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- partial('partials/head', {title:title}) %>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+	<%- partial('partials/header') %>
+
+	<div class="wrapper row-fluid">
+		
+
+		<div id="main" class="span6 offset5">
+			<div id="login-form" class="row-fluid">
+				<form action="/login" method="post" class="span16">
+						<h6>username</h6>
+						<div><input type="text" name="username"/></div>
+						<br>
+						<h6>password</h6>
+						<div><input type="password" name="password"/></div>
+						<div class="row-fluid">
+							<div class="span4 offset6">
+								<input type="submit" value="Submit"/>
+							</div>
+						</div>
+
+				</form>
+			</div>
+		</div><!-- /#main -->
+
+		
+
+		<%- partial('partials/footer') %>
+
+		
+	</div><!-- /#wrapper -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%- partial('partials/scripts') %>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

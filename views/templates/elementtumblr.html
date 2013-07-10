@@ -1,0 +1,47 @@
+<div id="element-<% if(_id.value){ %><%= _id.value %><% }else{ %>new<% } %>" class="row-fluid <%= data.type %>">
+
+	<div class="span5 left-col">
+		<% if(data.type == 'photo'){ %>
+			<ul class="photos">
+			<% for (var i = 0; i < data.photos.length; i++){ %>
+				<li class="photo"><img src="<%= data.photos[i].alt_sizes[0].url %>"></li>
+			<% } %>
+			</ul>
+		<% }else if(data.type == 'video'){ %>
+			<% if(data.player[2].embed_code){ %><%= data.player[2].embed_code %><% } %>
+		<% }else if(data.type == 'link'){ %>
+			<h2><a href="<% if(data.url){ %><%= data.url %><% } %>" target="_blank"><% if(data.title){ %><%= data.title %><% } %></a></h2>
+		<% }else if(data.type == 'text'){ %>
+			<% if(data.title){ %><h2><%= data.title %></h2><% } %>
+		<% } %>
+
+
+
+		<a class="source-link" href="<%= data.post_url %>" target="_blank">Original post →</a>
+		<% if(data.tags){ %>
+			<div class="tags">
+			<% for (var i = 0; i < data.tags.length; i++){ %>
+				<span class="tag <%= data.tags[i] %>"><%= data.tags[i] %></span><% if(i < data.tags.length-1){ %>,&nbsp;<% } %>
+			<% } %>
+			</div>
+		<% } %>
+	</div>
+
+	<div class="span6 right-col">
+		<% if(data.type == 'photo'){ %>
+			<div class="caption"><% if(data.caption){ %><%= data.caption %><% } %></div>
+		<% }else if(data.type == 'video'){ %>
+			<div class="caption"><% if(data.caption){ %><%= data.caption %><% } %></div>
+		<% }else if(data.type == 'text'){ %>
+			<div class="caption"><% if(data.body){ %><%= data.body %><% } %></div>
+		<% }else if(data.type == 'link'){ %>
+			<div class="caption"><% if(data.description){ %><%= data.description %><% } %></div>
+		<% } %>
+	</div>
+
+	<div class="span4 offset1 annotations">
+		<ul class="list"></ul>
+	</div>
+
+		
+</div>

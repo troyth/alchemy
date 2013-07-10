@@ -1,0 +1,18 @@
+{
+  "name": "alchemy",
+  "repo": "troyth/alchemy",
+  "description": "Alchemy insight engine helpers",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "alchemy.css"
+  ]
+}

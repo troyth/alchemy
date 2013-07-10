@@ -1,0 +1,5 @@
+<div id="user-<% if(data.id){ %><%= data.id %><% }else{ %>new<% } %>" class="span6 offset5">
+	<h3 class="name"><% if(data.name){ %><%= data.name %><% }else{ %>No name<% } %></h3>
+	<h3 class="username"><% if(data.username){ %><%= data.username %><% }else{ %>No username<% } %></h3>
+	<h3 class="last-login"><% if(data.last_login){ %><%= data.last_login %><% }else{ %>No last_login<% } %></h3>
+</div>

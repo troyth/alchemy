@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- partial('partials/head', {title:title}) %>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+	<%- partial('partials/header') %>
+
+	<div id="nav-top">
+		<%- partial('partials/usernav', { 
+				user: user
+			}) %>
+	</div>
+	<nav id="nav" class="row-fluid">
+		<%- partial('partials/feednav', { }) %>
+		<%- partial('partials/inquiriesnav', { }) %>
+	</nav>
+	<div class="wrapper row-fluid">
+		
+
+		<div id="main" class="span10 offset3">
+			<div id="intro-text" class="row-fluid">
+				<h1 class="bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We design the workflows and infrastructures of our work as much as the work itself. For our research, we have built an insight engine called Alchemy that collects information from various sources, including tumblr <i class="icon-tumblr" style="font-size:24px;"></i>, flickr <i class="icon-flickr" style="font-size:24px;"></i>, twitter <i class="icon-twitter" style="font-size:24px;"></i> and instagram <i class="icon-instagram" style="font-size:24px;"></i> into a rich environment for sorting, searching, filtering, annotating and ultimately synthesizing.</h1>
+			</div>
+		</div><!-- /#main -->
+		
+
+		<%- partial('partials/footer') %>
+
+		
+	</div><!-- /#wrapper -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%- partial('partials/scripts') %>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

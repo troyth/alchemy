@@ -1,0 +1,22 @@
+<div class="fragment-container">
+	<% if(typeof data.insight_id != "undefined"){ %><i class="fragment-feature icon-plus"></i><i class="fragment-delete icon-remove"></i><% }else{ %><i class="icon-idea-alt insight-menu-icon"></i><% } %>
+	<% if(data.type == "image"){ %>
+		<img src="<%= data.content %>" width="250px">
+	<% }else if(data.type == 'quote'){ %>
+		<div class="fragment-quote-text"><%= data.content %></div>
+	<% }else if(data.type == 'title'){ %>
+		<div class="fragment-title"><%= data.content %></div>
+	<% } %>
+	<div class="fragment-url"><a href="<%= data.post_url %>" target="_blank">Original post →</a></div>
+	<div class="fragment-tags">
+		<% if(data.tags){ %>
+			<% for(var t = 0; t < data.tags.length; t++){ %>
+				<% if(t < data.tags.length-1){ %>
+					<span class="<%= data.tags[t] %>"><%= data.tags[t] %>, </span>
+				<% }else{ %>
+					<span class="<%= data.tags[t] %>"><%= data.tags[t] %></span>
+				<% } %>
+			<% } %>
+		<% } %>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+<div id="nav" class="row-fluid bold">
+	<% if(typeof user !== 'undefined'){ %>
+		<% if(typeof inquiry !== 'undefined'){ %>
+			<div id="inquiry-nav" class="span4 offset6 nav">
+				<select class="menu">
+					<option class="inquiry-<%= inquiry.title %>" value="inquiry-<%= inquiry.title %>"><%= inquiry.title %></option>
+				</select>
+
+			</div>
+			<div id="user-nav" class="span4 offset2 nav">
+				<select class="menu">
+					<option default><%= user.name %></option>
+					<option disabled>/////////////////////</option>
+					<option class="user-account" value="/insights/user/<%= user.id %>">My Account</option>
+					<option class="user-inquiries" value="/insights/inquiries">Inquiries</option>
+					<% if(user.role == 'admin'){ %>
+						<option class="user-users" value="/insights/users">Users</option>
+						<option class="user-admin" value="/insights/admin">Admin</option>
+					<% } %>
+					<option class="user-logout" value="/logout">Logout</option>
+				</select>
+
+			</div>
+		<% }else{ %>
+			<div id="user-nav" class="span4 offset12 nav">
+				<select class="menu">
+					<option default><%= user.name %></option>
+					<option disabled>/////////////////////</option>
+					<option class="user-account" value="/insights/user/<%= user.id %>">My Account</option>
+					<% if(user.role == 'admin'){ %>
+						<option class="user-users" value="/insights/users">Users</option>
+						<option class="user-admin" value="/insights/admin">Admin</option>
+					<% } %>
+					<option class="user-logout" value="/logout">Logout</option>
+				</select>
+			</div>
+		<% } %>
+	<% }else{ %>
+		<div id="user-nav" class="nav span4 offset12">
+			<ul class="menu">
+				<li class="menu-option selected"><a href="/login">Login</a></li>
+			</ul>
+		</div>
+	<% } %>
+
+	
+</div><!-- /#nav -->

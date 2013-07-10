@@ -1,0 +1,27 @@
+<div class="row-fluid">
+	<div id="nav-mode-choose" class="span10 offset3">
+		<div class="mono center">
+			<span class="selected">create</span>&nbsp;&nbsp;&nbsp;<span class="unselected">present</span>&nbsp;&nbsp;&nbsp;<span class="unselected">administer</span>
+		</div>
+	</div>
+
+	<% if(typeof user !== 'undefined'){ %>
+		<div id="user-nav"class="span3 nav bold">
+			<select class="menu">
+				<option default><%= user.name %></option>
+				<option disabled>/////////////////////</option>
+				<option class="user-account" value="/insights/user/<%= user.id %>">My Account</option>
+				<option class="user-inquiries" value="/insights/inquiries">Inquiries</option>
+				<% if(user.role == 'admin'){ %>
+					<option class="user-users" value="/insights/users">Users</option>
+					<option class="user-admin" value="/insights/admin">Admin</option>
+				<% } %>
+				<option class="user-logout" value="/logout">Logout</option>
+			</select>
+		</div>
+	<% }else{ %>
+		<div id="user-nav" class="span3 offset2 nav bold">
+			<a href="/login">Login</a>
+		</div>
+	<% } %>
+</div>

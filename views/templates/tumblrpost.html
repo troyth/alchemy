@@ -1,0 +1,17 @@
+
+	<div id="overlay-close" class="bold">Close</div>
+	<div id="overlaybg"></div>
+	<div id="overlay-post" class="row-fluid">
+		<div class="post-left span6 offset1">
+			<% for(var i in data.post_photos){ %>
+				<div class="tumblr-post-media">
+					<%= data.post_photos[i] %>
+					<i class="icon-idea-alt insight-menu-icon"></i>
+				</div>
+			<% } %>
+		</div>
+		<div class="post-right span6 offset2">
+			<%= data.post_text %>
+		</div>	
+		
+	</div><!-- /#overlay-post -->

@@ -1,0 +1,28 @@
+<li id="featured-<%= data._id %>" class="featured-item ui-state-default<% if(typeof data.new != undefined){ %> new<% } %>">
+	<div class="media-container row-fluid">
+		<div class="rel span4 offset6">
+			<i class="fragment-unfeature icon-minus"></i><i class="fragment-delete icon-remove"></i>
+			<% if(data.type == "image"){ %>
+				<img src="<%= data.content %>">
+			<% }else if(data.type == 'quote'){ %>
+				<div class="fragment-quote-text"><%= data.content %></div>
+			<% }else if(data.type == 'title'){ %>
+				<div class="fragment-title"><%= data.content %></div>
+			<% } %>
+		</div>
+	</div><!-- /.media-container -->
+	<div class="row-fluid">
+		<div class="span16 fragment-url">
+			<a href="<%= data.post_url %>" target="_blank">Original post →</a>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="caption span6 offset5 editable" contenteditable="false">
+			<% if(typeof data.caption != 'undefined'){ %>
+					<%= data.caption %>
+			<% }else{ %>
+				Add caption
+			<% } %>
+		</div>
+	</div>
+</li>

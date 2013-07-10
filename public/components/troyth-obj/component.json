@@ -1,0 +1,23 @@
+{
+  "name": "obj",
+  "repo": "troyth/obj",
+  "description": "Backbone object for insight engine",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/jquery": "*",
+    "component/underscore": "*",
+    "brighthas/backbone": "*",
+    "component/marked": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "obj.css"
+  ]
+}

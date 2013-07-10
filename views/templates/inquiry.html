@@ -1,0 +1,82 @@
+<div id="inquiry-<% if(data._id){ %><%= data._id %><% }else{ %>new<% } %>" class="span8 offset4 inner">
+	<div class="editbutton"><i class="icon-edit"></i></div>
+	<div class="row-fluid">
+		<div class="span4 offset2 bttn delete">Delete</div>
+		<div class="span4 bttn cancel">Cancel</div>
+		<div class="span4 bttn save">Save</div>
+
+	</div>
+
+	<a href="/insights/inquiry/<%= data._id %>/content" class="openinquiry">Go to inquiry →</a>
+
+	<h2><div class="title editable" contenteditable="false">
+		<% if(data.title){ %>
+			<%= data.title %>
+		<% }else{ %>
+			Title
+		<% } %>
+	</div></h2>
+
+	<div class="description editable" contenteditable="false">
+		<% if(data.description){ %>
+			<%= data.description %>
+		<% }else{ %>
+			Description
+		<% } %>
+	</div>
+
+	<div class="row-fluid sources-wrapper">
+		<h6>Sources</h6>
+		
+		<ul class="sources">
+			<li class="row-fluid source-header">
+				<h5 class="span2">type</h5>
+				<h5 class="span9">source</h5>
+				<h5 class="span4">tag</h5>
+			</li>
+			<% if(data.sources){ %>
+				<% for(var s = 0; s < data.sources.length; s++){ %>
+					<li class="row-fluid source-container">
+						<ul class="source-type-menu span2">
+							<li class="selected" type="<%= data.sources[s].type %>"><i class="icon-<%= data.sources[s].type %>"></i></li>
+						</ul>
+						<div class="editable source-source span9" contenteditable="false"><%= data.sources[s].source %></div>
+						<div class="span4 editable source-tag" contenteditable="false"><%= data.sources[s].tag %></div>
+						<div class="span1 deletesource"><i class="icon-remove"></i></div>
+					</li>
+				<% } %>
+			<% } %>
+		</ul>
+	</div>
+	<div class="row-fluid">
+		<div class="span4 offset6 bttn addsource">Add Source</div>
+	</div>
+
+	<div class="row-fluid collaborators-wrapper">
+		<h6>Collaborators</h6>
+		
+		<ul class="collaborators">
+			<li class="row-fluid source-header">
+				<h5 class="span9 offset2">name</h5>
+				<h5 class="span4">role</h5>
+			</li>
+			<% if(data.collaborators){ %>
+				<%- console.log('********, users then collaborators: ') %>
+				<%= console.dir( users ) %>
+				<%= console.dir( data.collaborators) %>
+				<% for(var c = 0; c < data.collaborators.length; c++){ %>
+					<li class="row-fluid collaborator-container">
+						<div class="span2"><i class="icon-user" style="color:black;"></i></div>
+						<div class="name span9" userid="<%= data.collaborators[c].id %>"><%= users[data.collaborators[c].id].name %></div>
+						<div class="role span4"><%= data.collaborators[c].role %></div>
+						<div class="span1 deletecollaborator"><i class="icon-remove"></i></div>
+					</li>
+				<% } %>
+			<% } %>
+		</ul>
+	</div><!-- /.collaborators-wrapper -->
+
+	<div class="row-fluid">
+		<div class="span4 offset6 bttn addcollaborator">Add Collaborator</div>
+	</div>
+</div>

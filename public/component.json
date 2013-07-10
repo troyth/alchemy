@@ -1,0 +1,16 @@
+{
+  "name": "alchemy",
+  "repo": "troyth/alchemy",
+  "description": "Alchemy insight engine",
+  "version": "0.0.1",
+  "keywords": ["insights", "alchemy", "research"],
+  "dependencies": {
+    "component/jquery": "*",
+    "component/underscore": "*",
+    "brighthas/backbone": "*",
+    "danzajdband/vanilla-masonry": "*"
+  },
+  "scripts": ["javascripts/index.js"],
+  "styles": ["stylesheets/alchemy.css"],
+  "license": "All rights reserved"
+}

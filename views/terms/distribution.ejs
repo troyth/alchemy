@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- partial('../partials/head', {title:title}) %>
+  
+<body data-spy="scroll" data-target=".subnav" data-offset="50" class="glossaryterms">
+
+	<%- partial('../partials/alchemymenu') %>
+	
+	<div class="wrapper">
+		<%- partial('../partials/header') %>
+		<%- partial('../partials/nav') %>
+
+		<div id="main" class="row-fluid">
+			<div class="span12 offset2 total-posts">
+				<h6>Total Terms</h6>
+				<div class="number bold"><%= terms.length %></div>
+			</div>
+
+			<div class="span12 offset2 terms">
+				<% for(var tag in terms){ %>
+					<span class="term"><a href="http://ifthisthenth-ey.tumblr.com/tagged/<%= terms[ tag ].tag.replace(/ /g,"-") %>" target="_blank"><%= terms[ tag ].tag %> (<%= terms[ tag ].value %>),</a></span>
+				<% } %>
+			</div>
+		</div><!-- /#main -->
+
+		<%- partial('../partials/footer') %>
+
+		
+	</div><!-- /#wrapper -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%- partial('../partials/scripts') %>
+    
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

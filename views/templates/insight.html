@@ -1,0 +1,48 @@
+<div<% if(typeof data._id != 'undefined'){ %> id="insight-<%= data._id %>"<% } %> class="insight-container<% if(data.position){ %> position-<%= data.position %><% } %>">
+	<div class="controls row-fluid">
+		<div class="bttn edit span1 offset7">Edit</div>
+		<div class="bttn cancel span1 pull-left">Cancel</div>
+		<div class="bttn delete span1 pull-left">Delete</div>
+		<div class="bttn clone span1 pull-left">Clone</div>
+	</div>
+	<div class="content row-fluid">
+		<div class="position span6 offset5" contenteditable="false">
+			<div><i class="icon-caret-up vote-up"></i></div>
+			<% if(data.position){ %>
+				<h4><span class="number"><%= data.position %></span> votes</h4>				
+			<% }else{ %>
+				<h4><span class="number">1</span> votes</h4>
+			<% } %>
+			<div><i class="icon-caret-down vote-down"></i></div>
+		</div>
+	</div>
+	<div class="content row-fluid">
+		<div class="title span6 offset5 editable" contenteditable="false">
+			<h2><%= data.title %></h2>
+		</div>
+	</div>
+	<div class="content row-fluid">
+		<div class="tags span6 offset5 editable" contenteditable="false">
+			<% if(typeof data.tags != 'undefined'){ %>
+				<% for(var i = 0; i < data.tags.length; i++){ %>
+					<span class="tag <%= data.tags[i] %>"><%= data.tags[i] %><% if(i < data.tags.length-1){ %>, <% } %></span>
+				<% } %>
+			<% } %>
+		</div>
+	</div>
+	<div class="content row-fluid">
+		<div class="description span6 offset5 editable" contenteditable="false">
+			<%= data.description %>
+		</div>
+	</div>
+	<ul class="featured sortable">
+	</ul><!-- /.featured -->
+
+	<div class="row-fluid">
+		<div class="span16">
+			<h4>Additional Evidence</h4>
+		</div>
+	</div>
+	<div class="fragments-el"></div>
+
+</div>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- partial('../partials/head', {title:title}) %>
+<body data-spy="scroll" data-target=".subnav" data-offset="50" class="categoriesio">
+
+	<%- partial('../partials/alchemymenu') %>
+	
+	<div class="wrapper">
+		<%- partial('../partials/header') %>	
+		<%- partial('../partials/nav') %>
+
+		
+
+		<div id="main">
+
+			<div id="categories-io" class="row-fluid">
+				<div id="categories-io-i" class="span4 offset2">
+
+					<% for(var tag in elements){ %>
+						<% if(elements[tag] != undefined){ %>
+							<div class="categories-io-item">
+								<h6><%= tag %></h6>
+								<div class="<%= tag %> categories-io-value bold"><%= Math.floor(elements[tag].length/total_posts * 100) %>%</div>
+							</div>
+						<% } %>
+					<% } %>
+				
+				</div><!-- /.categories-io-i -->
+
+				<div id="categories-io-o" class="span10">
+					<div id="chart">
+						<div id="total-posts-in-chart">
+							<% if(typeof(total_posts) != undefined){ %>
+								<h6>Total Posts</h6>
+								<%= total_posts %>
+							<% } %>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.categories-io -->
+		</div><!-- /#main -->
+
+		<%- partial('../partials/footer') %>
+		
+	</div><!-- /#wrapper -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%- partial('../partials/scripts') %>
+
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js?2.4.6"></script>
+	<script src='http://mbostock.github.com/d3/d3.layout.js?2.4.6' type='text/javascript'></script>
+
+	<script>
+		var data = [
+			{name: "Material", val: <%= Math.floor(elements['material'].length/total_posts * 100) %>},
+			{name: "Light", val: <%= Math.floor(elements['light'].length/total_posts * 100) %>},
+		    {name: "Architecture", val: <%= Math.floor(elements['architecture'].length/total_posts * 100) %>},
+		    {name: "Fashion", val: <%= Math.floor(elements['fashion'].length/total_posts * 100) %>},
+		    {name: "Tech", val: <%= Math.floor(elements['tech'].length/total_posts * 100) %>},
+		    {name: "Design", val: <%= Math.floor(elements['design'].length/total_posts * 100) %>},
+		    {name: "Women", val: <%= Math.floor(elements['women'].length/total_posts * 100) %>}   
+		];
+
+		var colors = [
+			'<%= colors['material'] %>',
+			'<%= colors['light'] %>',
+			'<%= colors['architecture'] %>',
+			'<%= colors['fashion'] %>',
+			'<%= colors['tech'] %>',
+			'<%= colors['design'] %>',
+			'<%= colors['women'] %>'
+		];
+
+		var color = function(i){
+			return colors[i];
+		}
+			
+		var w = 600,
+		    h = 600,
+		    r = Math.min(w, h) / 2,
+		    donut = d3.layout.pie(),
+		    arc = d3.svg.arc().innerRadius(r * .6).outerRadius(r);
+
+	
+
+		var vis = d3.select("#chart")
+		  .append("svg:svg")
+		    .data([data])
+		    .attr("width", w)
+		    .attr("height", h);
+
+		var arcs = vis.selectAll("g.arc")
+		    .data(donut.value(function(d) { return d.val }))
+		  .enter().append("svg:g")
+		    .attr("class", "arc")
+		    .attr("transform", "translate(" + r + "," + r + ")");
+
+		arcs.append("svg:path")
+		    .attr("fill", function(d, i) { 
+		    	console.log('color('+i+')');
+		    	console.log(color(i));
+		    	console.dir(color(i));
+		    	return color(i); 
+		    })
+		    .attr("d", arc);
+
+		
+	</script>
+
+	
+	
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

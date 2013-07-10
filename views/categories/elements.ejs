@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- partial('../partials/head', {title:title}) %>
+<body data-spy="scroll" data-target=".subnav" data-offset="50">
+
+	<%- partial('../partials/alchemymenu') %>
+	
+	<div class="wrapper">
+
+		<div id="overlay"></div><!-- /#overlay -->
+		
+		<%- partial('../partials/header') %>
+		<%- partial('../partials/nav') %>
+
+		
+
+		<div id="main">
+
+			<div id="categories-io" class="row-fluid">
+				<div id="categories-io-i" class="span6 offset5">
+					
+					<% for(var tag in elements){ %>
+						<% if(elements[tag] != undefined){ %>
+							<div class="tag-elements">
+								<h6><%= tag %></h6>
+								<div class="<%= tag %> categories-io-value bold"><%= elements[tag].length %></div>
+								<div class="<%= tag %> tumblr-posts bold"><a href="http://ifthisthenth-ey.tumblr.com/tagged/<%= tag %>" class="<%= tag %>" target="_blank">tumblr posts →</a></div>
+							
+								<div class="tag-elements-icons">
+									<% for(var i in elements[tag]){ %>
+										<span class="tag-elements-icon">
+											<a href="/insights/air/api/get/tumblrpost/<%= elements[tag][i].id %>" class="api-get-tumblrpost <%= tag %>"><i class="icon-tumblr <%= tag %>"></i></a>
+											<% if(elements[tag][i].type == 'photo'){ %>
+												<img src="<%= elements[tag][i].photos[0].alt_sizes[1].url %>" width="<%= elements[tag][i].photos[0].alt_sizes[1].width %>px" height="<%= elements[tag][i].photos[0].alt_sizes[1].height %>px" style="margin-top:<%= -1*Math.floor(elements[tag][i].photos[0].alt_sizes[1].height/2) %>px; margin-left:<%= -1*Math.floor(elements[tag][i].photos[0].alt_sizes[1].width/2) %>px;">
+											<% } %>
+										</span><!-- /.categories-icon -->
+									<% } %>
+								</div>
+							</div>
+						<% } %>
+
+
+					<% } %>
+					
+				</div><!-- /.categories-io-i -->
+			</div><!-- /.categories-io -->
+		</div><!-- /#main -->
+
+		<%- partial('../partials/footer') %>
+		
+	</div><!-- /#wrapper -->
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%- partial('../partials/scripts') %>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
